@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "hyperion-test-bot"
+version = "0.1.0"
+description = ""
+authors = ["Riley Flynn <riley@rileyflynn.me>"]
+license = "MIT"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+"discord.py" = "^1.7.2"
+python-dotenv = "^0.17.1"
+requests = "^2.25.1"
+
+[tool.poetry.dev-dependencies]
+black = "^21.5b1"
+isort = "^5.8.0"
+flake8 = "^3.9.2"
+flake8-isort = "^4.0.0"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
