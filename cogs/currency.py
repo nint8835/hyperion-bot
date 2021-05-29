@@ -33,7 +33,6 @@ class Currency(commands.Cog):
             f"{hyperion_base_url}/accounts",
             json={
                 "id": ctx.author.id,
-                "starting_balance": 100,
                 "display_name": ctx.author.name,
             },
         )
@@ -44,9 +43,7 @@ class Currency(commands.Cog):
             )
             return
 
-        await ctx.reply(
-            f"Opened new account with starting balance of 100 {currency_details['plural_form']}."
-        )
+        await ctx.reply("Opened new account.")
 
     @commands.command()
     async def payout(self, ctx: commands.Context):
