@@ -1,21 +1,18 @@
 [tool.poetry]
-name = "hyperion-test-bot"
+name = "hyperion-bot"
 version = "0.1.0"
 description = ""
 authors = ["Riley Flynn <riley@rileyflynn.me>"]
 license = "MIT"
 
 [tool.poetry.dependencies]
-python = "^3.9"
-"discord.py" = "^1.7.2"
-python-dotenv = "^0.17.1"
-requests = "^2.25.1"
+python = "^3.10"
+pydantic = {version = "^1.9.1", extras=["dotenv"]}
+requests = "^2.27.1"
+"discord.py" = {git = "https://github.com/rapptz/discord.py.git"}
 
 [tool.poetry.dev-dependencies]
-black = "^21.5b1"
-isort = "^5.8.0"
-flake8 = "^3.9.2"
-flake8-isort = "^4.0.0"
+black = "^22.3.0"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
