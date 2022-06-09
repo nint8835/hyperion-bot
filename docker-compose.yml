@@ -1,0 +1,8 @@
+version: '3'
+
+services:
+  hyperionbot:
+    image: ghcr.io/nint8835/hyperion-bot
+    restart: always
+    env_file:
+      - .env
