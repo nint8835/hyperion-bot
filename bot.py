@@ -228,7 +228,7 @@ async def send(
     new_transaction = Transaction(**execution_resp.json())
     if new_transaction.state != "complete":
         await interaction.response.send_message(
-            f"Transaction {new_transaction.state} - {new_transaction.state_reason}```",
+            f"Transaction {new_transaction.state} - {new_transaction.state_reason}",
         )
         return
 
