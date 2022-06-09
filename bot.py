@@ -225,6 +225,13 @@ async def send(
         )
         return
 
+    new_transaction = Transaction(**execution_resp.json())
+    if new_transaction.state != "complete":
+        await interaction.response.send_message(
+            f"Transaction {new_transaction.state} - {new_transaction.state_reason}```",
+        )
+        return
+
     await interaction.response.send_message(
         f"You have sent {amount} {currency.plural_form} to {user.name}."
     )
