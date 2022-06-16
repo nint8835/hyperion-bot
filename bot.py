@@ -174,20 +174,24 @@ async def daily(interaction: discord.Interaction):
 
 
 @tree.command(guild=guild)
-async def balance(interaction: discord.Interaction):
-    """Get your balance."""
-    resp = hyperion_session.get(
-        f"{config.hyperion_endpoint}/api/v1/accounts/{interaction.user.id}"
-    )
+async def balance(interaction: discord.Interaction, user: Optional[discord.User]):
+    """Get balance of a user."""
+
+    if user is None:
+        user = interaction.user
+
+    resp = hyperion_session.get(f"{config.hyperion_endpoint}/api/v1/accounts/{user.id}")
     if resp.status_code != 200:
         await interaction.response.send_message(
             f"Error getting account.\n```\n{resp.json()['detail']}\n```",
         )
         return
 
+    prefix = "You have" if user == interaction.user else f"{user.name} has"
+
     account = Account(**resp.json())
     await interaction.response.send_message(
-        f"You have {account.balance} {currency.plural_form}."
+        f"{prefix} {account.balance} {currency.plural_form}."
     )
 
 
