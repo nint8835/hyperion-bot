@@ -174,7 +174,7 @@ async def daily(interaction: discord.Interaction):
 
 
 @tree.command(guild=guild)
-async def balance(interaction: discord.Interaction, user: Optional[discord.user]):
+async def balance(interaction: discord.Interaction, user: Optional[discord.User]):
     """Get balance of a user."""
 
     if user is None:
@@ -187,7 +187,7 @@ async def balance(interaction: discord.Interaction, user: Optional[discord.user]
         )
         return
 
-    prefix = "You" if user == interaction.user else f"{user.name}'s"
+    prefix = "You have" if user == interaction.user else f"{user.name} has"
 
     account = Account(**resp.json())
     await interaction.response.send_message(
